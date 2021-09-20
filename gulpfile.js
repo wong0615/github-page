@@ -14,7 +14,7 @@ function html() {
         basepath: '@file'
       })
     )
-    .pipe(dest('dest'))
+    .pipe(dest('./'))
     .pipe(reload({ stream: true }));
 }
 
@@ -22,14 +22,14 @@ function css() {
   return src('src/css/*.scss')
     .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
     .pipe(postcss([autoprefixer()]))
-    .pipe(dest('dest/css'))
+    .pipe(dest('css'))
     .pipe(reload({ stream: true }));
 }
 
 function js() {
   return (
     src('src/js/*.js')
-      .pipe(dest('dest/js'))
+      .pipe(dest('js'))
       .pipe(reload({ stream: true }))
   );
 }
@@ -37,7 +37,7 @@ function js() {
 function serve() {
   bs.init({
     server: {
-      baseDir: 'dest',
+      baseDir: './',
       ghostMode: false
     }
   });
