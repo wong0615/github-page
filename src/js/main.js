@@ -4,7 +4,7 @@ $(function() {
   
   $.ajax({
     type: 'GET',
-    url : '../data/news.json',
+    url : 'https://wong0615.github.io/github-page/data/news.json',
     success: function(data) {
       if(data.length > 0){
         html = '';
